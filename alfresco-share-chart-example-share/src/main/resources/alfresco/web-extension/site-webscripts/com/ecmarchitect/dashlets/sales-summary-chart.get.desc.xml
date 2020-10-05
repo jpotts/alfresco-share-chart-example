@@ -1,0 +1,6 @@
+<webscript>
+    <shortname>Sales Summary Chart</shortname>
+    <description>Displays sales summary data in chart form</description>
+    <family>site-dashlet</family>
+    <url>/components/dashlets/ecmarchitect/sales-summary</url>
+</webscript>

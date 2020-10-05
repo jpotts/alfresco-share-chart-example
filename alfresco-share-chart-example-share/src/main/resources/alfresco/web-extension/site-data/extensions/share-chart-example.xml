@@ -1,0 +1,20 @@
+<extension>
+  <modules>
+    <module>
+      <id>Share Chart Example</id>
+      <version>1.0</version>
+      <auto-deploy>true</auto-deploy>
+      <configurations>
+        <config evaluator="string-compare" condition="WebFramework" replace="false">
+          <web-framework>
+            <dojo-pages>
+              <packages>
+                <package name="examples" location="resources/alfresco-share-chart-example-share/js/examples"/>
+              </packages>
+            </dojo-pages>
+          </web-framework>
+        </config>
+      </configurations>
+    </module>
+  </modules>
+</extension>
