@@ -34,7 +34,15 @@ define(["dojo/_base/declare",
             *
             * @instance
             * @type {object[]}
+            * @default [{name: "examples/widgets/CustomReportWidget", config: {title: ""}}]
             */
-            widgetsForBody: []
+           widgetsForBody: [
+              {
+                 name: "examples/widgets/CustomReportWidget",
+                 config: {
+                    title: ""
+                 }
+              }
+           ]
         });
      });
