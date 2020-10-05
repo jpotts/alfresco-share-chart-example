@@ -1,0 +1,7 @@
+<webscript>
+    <shortname>Example Report Data Webscript</shortname>
+    <description>Generates test data</description>
+    <url>/custom/data</url>
+    <authentication>user</authentication>
+    <format default="json"></format>
+</webscript>
