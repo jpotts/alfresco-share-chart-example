@@ -45,7 +45,9 @@ define(["dojo/_base/declare",
       getTestReport: function custom_services_CustomReportService__getTestReport(payload) {
          /*jshint eqnull:true*/
          var alfTopic = (payload.alfResponseTopic != null) ? payload.alfResponseTopic : "CUSTOM_RETRIEVE_TEST_REPORT";
-         var url = AlfConstants.PROXY_URI + "custom/data";
+         //var url = AlfConstants.PROXY_URI + "custom/data";
+         var url = window.location.protocol + "//" + window.location.host + "/share/service/custom/data";
+         //url+= "/" + payload.site;
          var config = {
             alfTopic: alfTopic,
             url: url,
