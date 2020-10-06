@@ -10,5 +10,14 @@
              alfresco/tomcat/shared/classes/alfresco/web-extension/share-config-custom.xml
      -->
 <alfresco-config>
-
+    <config evaluator="string-compare" condition="Remote">
+        <remote>
+            <endpoint>
+                <id>example-api</id>
+                <name>Alfresco Chart Example API</name>
+                <connector-id>http</connector-id>
+                <endpoint-url>http://alfresco-chart-example-api:8000</endpoint-url>
+            </endpoint>
+        </remote>
+    </config>
 </alfresco-config>
