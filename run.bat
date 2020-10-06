@@ -11,7 +11,7 @@ IF NOT [%M2_HOME%]==[] (
 )
 
 IF [%1]==[] (
-    echo "Usage: %0 {build_start|build_start_it_supported|start|stop|purge|tail|reload_share|reload_acs|build_test|test}"
+    echo "Usage: %0 {build_start|build_start_it_supported|start|stop|purge|tail|reload_share|reload_acs|reload_api|build_test|test}"
     GOTO END
 )
 
@@ -60,6 +60,12 @@ IF %1==reload_acs (
     CALL :tail
     GOTO END
 )
+IF %1==reload_api (
+    CALL :build_api
+    CALL :start_api
+    CALL :tail
+    GOTO END
+)
 IF %1==build_test (
     CALL :down
     CALL :build
@@ -90,6 +96,9 @@ EXIT /B 0
 :start_acs
     docker-compose -f "%COMPOSE_FILE_PATH%" up --build -d alfresco-share-chart-example-acs
 EXIT /B 0
+:start_api
+    docker-compose -f "%COMPOSE_FILE_PATH%" up --build -d alfresco-chart-example-api
+EXIT /B 0
 :down
     if exist "%COMPOSE_FILE_PATH%" (
         docker-compose -f "%COMPOSE_FILE_PATH%" down
@@ -107,6 +116,11 @@ EXIT /B 0
     docker-compose -f "%COMPOSE_FILE_PATH%" kill alfresco-share-chart-example-acs
     docker-compose -f "%COMPOSE_FILE_PATH%" rm -f alfresco-share-chart-example-acs
 	call %MVN_EXEC% clean package -pl alfresco-share-chart-example-integration-tests,alfresco-share-chart-example-platform,alfresco-share-chart-example-platform-docker
+EXIT /B 0
+:build_api
+    docker-compose -f "%COMPOSE_FILE_PATH%" kill alfresco-chart-example-api
+    docker-compose -f "%COMPOSE_FILE_PATH%" rm -f alfresco-chart-example-api
+	call %MVN_EXEC% clean package -pl alfresco-chart-example-api,alfresco-chart-example-api-docker
 EXIT /B 0
 :tail
     docker-compose -f "%COMPOSE_FILE_PATH%" logs -f

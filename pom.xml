@@ -445,10 +445,13 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-<modules>  <module>alfresco-share-chart-example-platform</module>
-    <module>alfresco-share-chart-example-share</module>
-    <module>alfresco-share-chart-example-integration-tests</module>
-    <module>alfresco-share-chart-example-platform-docker</module>
-    <module>alfresco-share-chart-example-share-docker</module>
-  </modules>
+    <modules>
+        <module>alfresco-share-chart-example-platform</module>
+        <module>alfresco-share-chart-example-share</module>
+        <module>alfresco-share-chart-example-integration-tests</module>
+        <module>alfresco-share-chart-example-platform-docker</module>
+        <module>alfresco-share-chart-example-share-docker</module>
+        <module>alfresco-chart-example-api</module>
+        <module>alfresco-chart-example-api-docker</module>
+    </modules>
 </project>

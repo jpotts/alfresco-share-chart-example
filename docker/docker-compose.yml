@@ -50,6 +50,13 @@ services:
     volumes:
       - alfresco-share-chart-example-ass-volume:/opt/alfresco-search-services/contentstore
       - alfresco-share-chart-example-ass-volume:/opt/alfresco-search-services/data
+  alfresco-chart-example-api:
+    image: alfresco-chart-example-api:development
+    build:
+      dockerfile: ./Dockerfile
+      context: ../../../alfresco-chart-example-api-docker/target
+    ports:
+      - "8000:8000"
 volumes:
   alfresco-share-chart-example-acs-volume:
     external: true

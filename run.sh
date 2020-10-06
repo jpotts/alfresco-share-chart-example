@@ -23,6 +23,10 @@ start_acs() {
     docker-compose -f "$COMPOSE_FILE_PATH" up --build -d alfresco-share-chart-example-acs
 }
 
+start_api() {
+    docker-compose -f "$COMPOSE_FILE_PATH" up --build -d alfresco-chart-example-api
+}
+
 down() {
     if [ -f "$COMPOSE_FILE_PATH" ]; then
         docker-compose -f "$COMPOSE_FILE_PATH" down
@@ -49,6 +53,12 @@ build_acs() {
     docker-compose -f "$COMPOSE_FILE_PATH" kill alfresco-share-chart-example-acs
     yes | docker-compose -f "$COMPOSE_FILE_PATH" rm -f alfresco-share-chart-example-acs
     $MVN_EXEC clean package -pl alfresco-share-chart-example-integration-tests,alfresco-share-chart-example-platform,alfresco-share-chart-example-platform-docker
+}
+
+build_api() {
+    docker-compose -f "$COMPOSE_FILE_PATH" kill alfresco-chart-example-api
+    yes | docker-compose -f "$COMPOSE_FILE_PATH" rm -f alfresco-chart-example-api
+    $MVN_EXEC clean package -pl alfresco-chart-example-api,alfresco-chart-example-api-docker
 }
 
 tail() {
@@ -105,6 +115,11 @@ case "$1" in
     start_acs
     tail
     ;;
+  reload_api)
+    build_api
+    start_api
+    tail
+    ;;
   build_test)
     down
     build
@@ -118,5 +133,5 @@ case "$1" in
     test
     ;;
   *)
-    echo "Usage: $0 {build_start|build_start_it_supported|start|stop|purge|tail|reload_share|reload_acs|build_test|test}"
+    echo "Usage: $0 {build_start|build_start_it_supported|start|stop|purge|tail|reload_share|reload_acs|reload_api|build_test|test}"
 esac
