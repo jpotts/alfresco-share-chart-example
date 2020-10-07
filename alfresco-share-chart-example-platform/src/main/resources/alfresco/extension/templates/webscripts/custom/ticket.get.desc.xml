@@ -1,0 +1,7 @@
+<webscript>
+    <shortname>Get Ticket</shortname>
+    <description>Returns the current user's ticket</description>
+    <url>/custom/ticket</url>
+    <authentication>user</authentication>
+    <format default="json"></format>
+</webscript>
