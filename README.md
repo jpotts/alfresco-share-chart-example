@@ -3,6 +3,14 @@
 This is an All-In-One (AIO) project for Alfresco SDK 4.0 that shows how to use out-of-the-box Aikau widgets to chart
 data in an Alfresco Share dashlet. The data can come from any source, such as a REST API.
 
+Each step is a tag. Steps 1 through 3 are covered in [this blog post](https://ecmarchitect.com/archives/2020/10/14/4492)
+while steps 4 through 7 are covered in [this blog post](https://ecmarchitect.com/archives/2020/10/16/4499).
+
+The final result is a Share dashlet that charts data. The data is sourced from an API that runs external to Alfresco
+in a Spring Boot application. The application runs in its own Docker container alongside the ACS and Share Docker
+containers. The API only returns data to authenticated Alfresco users. It does this by validating a ticket that is
+passed to the API by the code on the Alfresco tier.
+
 Run with `./run.sh build_start` or `./run.bat build_start` and verify that it
 
  * Runs Alfresco Content Service (ACS)
